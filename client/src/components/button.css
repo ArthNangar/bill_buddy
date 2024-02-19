@@ -1,0 +1,26 @@
+/* Assuming the CSS file is named `button.css` */
+
+.gradient-button {
+    background: linear-gradient(to right, #64d4fa, #4293fb);
+    border: none;
+    border-radius: 5px; /* Adjust as needed */
+    color: white;
+    cursor: pointer;
+    display: inline-block; /* Use 'inline-block' for button-like behavior */
+    font-family: sans-serif; /* Replace with your preferred font */
+    font-size: 16px; /* Adjust font size as needed */
+    margin: 5px; /* Adjust margin as needed */
+    padding: 8px 20px; /* Adjust padding as needed */
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .gradient-button:hover {
+    background: linear-gradient(to right, #4293fb, #64d4fa);
+  }
+  
+  .gradient-button:active {
+    transform: translateY(2px);
+  }
+  

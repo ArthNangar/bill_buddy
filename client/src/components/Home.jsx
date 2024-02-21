@@ -21,7 +21,7 @@ const Home = () =>{
        onClick={() => toggleInvoice() }
        >Add Invoice</button>
        }
-       { addInvoice && <AddInvoice />}
+       { addInvoice && <AddInvoice setAddInvoice={setAddInvoice} />}
 
 
        </div>

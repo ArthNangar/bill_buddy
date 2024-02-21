@@ -1,65 +1,75 @@
-import styled from "@emotion/styled";
-import {  TextField,Box } from "@mui/material";
-import React , {useState} from "react";
+import { useState } from "react";
+import { TextField, Box, styled } from "@mui/material";
 import { saveInvoice } from "../services/api";
 
-const Component = styled(Box)(
-    {
-        '&>h3':{
-            fontSize: 30
-        },
-        '&>div>div':{
-            marginRight: 15,
-            minWidth: 180
-        }
+const Component = styled(Box)({
+    marginTop: 20,
+    '& > p': {
+        fontSize: 26,
+        marginBottom: 10
+    },
+    '& > div > div': {
+        marginRight: 20,
+        minWidth: 200
     }
-)
+})
 
 const defaultObj = {
-    vendor:'',
-    product:'',
+    vendor: '',
+    product: '',
     amount: 0,
-    date:'',
-    action:'pending'
+    date: '',
+    action: 'pending'
 }
-const AddInvoice =() => {
-    const[invoice , setInvoice] = useState( defaultObj);
-    const onValuechange = (e) => {
-        setInvoice({...invoice, [e.target.name]: e.target.value});
-        
+
+const AddInvoice = ({ setAddInvoice }) => {
+    const [invoice, setInvoice] = useState(defaultObj);
+
+    const onValueChange = (e) => {
+        setInvoice({ ...invoice, [e.target.name]: e.target.value })
     }
 
-    const addNewInvoice =async () =>{
-       await  saveInvoice({...invoice, amount: Number(invoice['amount'])});
+    const addNewInvoice = async () => {
+        await saveInvoice({ ...invoice, amount: Number(invoice['amount']) });
+
+        setAddInvoice(false);
     }
 
-    return(
+    return (
         <Component>
-            <h3 style={{ textAlign: 'left', marginLeft: 20 }}>Pending Bills List:</h3>
+            <h1 style={{ textAlign: 'center', marginLeft: 20 }}>Add Invoice</h1>
             <Box>
-            <TextField 
-                placeholder="Enter the name of Buyer"
-                onChange={ (e) => onValuechange(e)}
-                name="vendor"
-            />
-            <TextField 
-                placeholder="Enter the product Name"
-                onChange={ (e) => onValuechange(e)}
-                name="product"
-            />
-            <TextField 
-                placeholder="Enter the Amount remaing"
-                type="number"
-                onChange={ (e) => onValuechange(e)}
-                name="amount"
-            />
-            <TextField 
-                placeholder="Enter the purchase Date "
-                type="date"
-                onChange={ (e) => onValuechange(e)}
-                name="date"
-            />
-            <button style={{
+                <TextField 
+                    name="vendor"
+                    // variant="standard"
+                    placeholder="Enter vendor name"
+                    onChange={(e) => onValueChange(e)}
+                    autoComplete="off"
+                />
+                <TextField 
+                    name="product"
+                    // variant="standard"
+                    placeholder="Enter product name"
+                    onChange={(e) => onValueChange(e)}
+                    autoComplete="off"
+                />
+                <TextField 
+                    name="amount"
+                    // variant="standard"
+                    placeholder="Enter amount (in Rs)"
+                    onChange={(e) => onValueChange(e)}
+                    type="number"
+                    autoComplete="off"
+                />
+                <TextField 
+                    name="date"
+                    // variant="standard"
+                    placeholder="Enter date"
+                    onChange={(e) => onValueChange(e)}
+                    type="date"
+                    autoComplete="off"
+                />
+                <button style={{
              backgroundColor: '#e74c3c', // Adjust color as needed
              color: '#fff',
              padding: '17px 30px',
@@ -74,9 +84,7 @@ const AddInvoice =() => {
             >
             Add Bill
             </button>
-
             </Box>
-
         </Component>
     )
 }

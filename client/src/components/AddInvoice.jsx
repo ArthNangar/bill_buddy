@@ -70,7 +70,7 @@ const AddInvoice = ({ setAddInvoice }) => {
                     autoComplete="off"
                 />
                 <button style={{
-             backgroundColor: '#e74c3c', // Adjust color as needed
+             backgroundColor: '#e74c3c',
              color: '#fff',
              padding: '17px 30px',
              borderRadius: '8px',

@@ -1,12 +1,24 @@
 import Header from "./Header";
 import './button.css';
+import Invoices from './Invoices'
 import AddInvoice from "./AddInvoice";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import { getAllInvoices } from "../services/api";
 
 
 const Home = () =>{
 
     const [addInvoice, setAddInvoice] = useState(false);
+    const [invoices , setInvoices ] = useState([]);
+
+    useEffect(() => {
+        const getData = async() => {
+            const response = await getAllInvoices();
+             setInvoices(response.data);
+        }
+        getData(); 
+    },[])
+
 
     const toggleInvoice =() =>{
         setAddInvoice(true);
@@ -22,9 +34,10 @@ const Home = () =>{
        >Add Invoice</button>
        }
        { addInvoice && <AddInvoice setAddInvoice={setAddInvoice} />}
-
-
-       </div>
+        </div>
+        <div>
+        <Invoices invoices={invoices} />
+        </div>
        </>
     )
 }

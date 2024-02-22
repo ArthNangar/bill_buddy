@@ -5,6 +5,8 @@ import com.invoiceprocessing.server.model.Invoice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class InvoiceServiceImpl implements  InvoiceService{
 
@@ -17,7 +19,11 @@ public class InvoiceServiceImpl implements  InvoiceService{
         invoiceDao.save(invoice);
 
         return invoice;
-            
+    }
+
+    @Override
+    public List<Invoice> getInvoices() {
+        return invoiceDao.findAll();
     }
 }
 

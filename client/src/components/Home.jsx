@@ -3,7 +3,7 @@ import './button.css';
 import Invoices from './Invoices'
 import AddInvoice from "./AddInvoice";
 import React, {useState, useEffect} from "react";
-import { getAllInvoices } from "../services/api";
+import { getAllInvoices , deleteInvoice } from "../services/api";
 
 
 const Home = () =>{
@@ -17,12 +17,20 @@ const Home = () =>{
              setInvoices(response.data);
         }
         getData(); 
-    },[])
+    },[addInvoice])
 
 
     const toggleInvoice =() =>{
         setAddInvoice(true);
     }
+
+    const removeInvoice =  async (id) =>{
+        await deleteInvoice(id);
+
+        const updatedInvoce = invoices.filter(invoice => invoice.id != id);
+        setInvoices(updatedInvoce);
+    }
+
     return(
        <>
        <Header />
@@ -36,7 +44,9 @@ const Home = () =>{
        { addInvoice && <AddInvoice setAddInvoice={setAddInvoice} />}
         </div>
         <div>
-        <Invoices invoices={invoices} />
+        <Invoices invoices={invoices}
+            removeInvoice={removeInvoice}
+         />
         </div>
        </>
     )

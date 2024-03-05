@@ -25,5 +25,12 @@ public class InvoiceServiceImpl implements  InvoiceService{
     public List<Invoice> getInvoices() {
         return invoiceDao.findAll();
     }
+
+    @Override
+    public Invoice deleteInvoice(long id) {
+        Invoice invoice = invoiceDao.findById(id).get();
+        invoiceDao.delete(invoice);
+        return  invoice;
+    }
 }
 

@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Invoice {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     private String vendor;
     private String product;

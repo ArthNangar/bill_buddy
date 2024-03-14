@@ -3,7 +3,7 @@ import './button.css';
 import Invoices from './Invoices'
 import AddInvoice from "./AddInvoice";
 import React, {useState, useEffect} from "react";
-import { getAllInvoices , deleteInvoice } from "../services/api";
+import { getAllInvoices , deleteInvoice, updateInvoice } from "../services/api";
 
 
 const Home = () =>{
@@ -27,16 +27,31 @@ const Home = () =>{
     const removeInvoice =  async (id) =>{
         await deleteInvoice(id);
 
-        const updatedInvoce = invoices.filter(invoice => invoice.id != id);
+        const updatedInvoce = invoices.filter(invoice => invoice.id !== id);
         setInvoices(updatedInvoce);
+    }
+
+    const handleUpdate = async (id, updatedData) => {
+        try {
+            await updateInvoice(id, updatedData); 
+            const updatedInvoices = invoices.map(invoice => {
+                if (invoice.id === id) {
+                    return { ...invoice, ...updatedData };
+                }
+                return invoice;
+            });
+            window.location.href = "/home"
+            setInvoices(updatedInvoices);
+        } catch (error) {
+            console.error('Error updating invoice:', error);
+        }
     }
 
     return(
        <>
        <Header />
-       <div>
+       <div style={{ textAlign:'center'}}>
        <h1 style={{color:"black"}}> Pending Invoice</h1>
-       {/* <button style={{ background: 'blue', color: 'white', padding: '10px' }}>Add Invoice </button> */}
        { !addInvoice && <button className="gradient-button"
        onClick={() => toggleInvoice() }
        >Add Invoice</button>
@@ -46,6 +61,7 @@ const Home = () =>{
         <div>
         <Invoices invoices={invoices}
             removeInvoice={removeInvoice}
+            handleUpdate={handleUpdate}
          />
         </div>
        </>

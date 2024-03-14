@@ -35,3 +35,14 @@ export const deleteInvoice = async(id) =>{
         return error.response.data ;
     }
 }
+
+    export const updateInvoice = async (id, payload) => {
+        try {
+            return await axios.put(`${API_URL}/invoice/${id}`, payload);
+        } catch (error) {
+            console.log('Error: ', error.message);
+            return error.response.data;
+        }
+    }
+
+    

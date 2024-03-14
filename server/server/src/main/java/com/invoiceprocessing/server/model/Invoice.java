@@ -14,17 +14,19 @@ public class Invoice {
     private int amount;
     private String date;
     private String action;
+     private String email;
 
     public  Invoice(){
 
     }
 
-    public Invoice(long id, String vendor, String product, int amount, String date, String action) {
+    public Invoice(long id, String vendor, String product, int amount, String date,String email,  String action) {
         this.id = id;
         this.vendor = vendor;
         this.product = product;
         this.amount = amount;
         this.date = date;
+        this.email = email;
         this.action = action;
     }
 
@@ -70,6 +72,14 @@ public class Invoice {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setAction(String action) {

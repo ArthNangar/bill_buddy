@@ -7,7 +7,7 @@ const Header= () =>{
     return(
             <AppBar color="secondary" position="static" sx={{ backgroundColor: 'skyblue' }}>
             <Toolbar>
-            <img src="billbuddy.png" alt="Your logo" style={{ width: 60, height: 40 }} />
+            <h1> Pending Bills Management System </h1>
             </Toolbar>
             </AppBar>
     )

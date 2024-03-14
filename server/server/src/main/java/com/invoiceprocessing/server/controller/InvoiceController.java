@@ -22,6 +22,11 @@ public class InvoiceController {
         return this.invoiceService.getInvoices();
     }
 
+    @PutMapping("/invoice/{invoiceId}")
+    public Invoice updateInvoice(@PathVariable Long invoiceId, @RequestBody Invoice updatedInvoice) {
+        return invoiceService.updateInvoice(invoiceId, updatedInvoice);
+    }
+
     @DeleteMapping("/invoice/{inoviceId}")
     public Invoice deleteInvoice(@PathVariable String inoviceId){
         return this.invoiceService.deleteInvoice(Long.parseLong((inoviceId)));

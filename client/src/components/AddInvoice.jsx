@@ -19,6 +19,7 @@ const defaultObj = {
     product: '',
     amount: 0,
     date: '',
+    email:'',
     action: 'pending'
 }
 
@@ -41,21 +42,21 @@ const AddInvoice = ({ setAddInvoice }) => {
             <Box>
                 <TextField 
                     name="vendor"
-                    // variant="standard"
+                    
                     placeholder="Enter vendor name"
                     onChange={(e) => onValueChange(e)}
                     autoComplete="off"
                 />
                 <TextField 
                     name="product"
-                    // variant="standard"
+                    
                     placeholder="Enter product name"
                     onChange={(e) => onValueChange(e)}
                     autoComplete="off"
                 />
                 <TextField 
                     name="amount"
-                    // variant="standard"
+                    
                     placeholder="Enter amount (in Rs)"
                     onChange={(e) => onValueChange(e)}
                     type="number"
@@ -63,10 +64,18 @@ const AddInvoice = ({ setAddInvoice }) => {
                 />
                 <TextField 
                     name="date"
-                    // variant="standard"
+                    
                     placeholder="Enter date"
                     onChange={(e) => onValueChange(e)}
                     type="date"
+                    autoComplete="off"
+                />
+                 <TextField 
+                    name="email"
+                    
+                    placeholder="Enter your email"
+                    onChange={(e) => onValueChange(e)}
+                    
                     autoComplete="off"
                 />
                 <button style={{

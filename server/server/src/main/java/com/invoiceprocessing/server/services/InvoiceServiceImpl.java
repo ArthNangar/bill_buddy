@@ -40,7 +40,7 @@ public class InvoiceServiceImpl implements  InvoiceService{
             invoice.setVendor(updatedInvoice.getVendor());
             invoice.setEmail(updatedInvoice.getEmail());
             invoice.setProduct(updatedInvoice.getProduct());
-            
+
             invoiceDao.save(invoice);
             return invoice;
         } else {

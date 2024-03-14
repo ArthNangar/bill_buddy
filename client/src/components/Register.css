@@ -3,20 +3,23 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
 .register-card {
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+    width: 300px; 
+    max-width: 90%; 
 }
 
 .register-header {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     text-align: center;
     margin-bottom: 20px;
+    color: #333333;
 }
 
 .register-input-field {
@@ -26,10 +29,28 @@
 .register-input-field input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
+    border: none;
+    border-bottom: 2px solid #cccccc;
     outline: none;
     font-size: 1rem;
+    background-color: transparent;
+}
+
+.register-input-field label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: #777777;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.register-input-field input:focus + label,
+.register-input-field input:valid + label {
+    top: 0;
+    font-size: 0.8rem;
+    color: #333333;
 }
 
 .register-button {
@@ -44,12 +65,13 @@
 }
 
 .register-button:hover {
-    background-color: #0056b3;
+    background-color: #ff4f4f;
 }
 
 .sign-in {
     text-align: center;
     margin-top: 20px;
+    color: #333333;
 }
 
 .sign-in a {

@@ -55,13 +55,6 @@ To run this project locally, follow these steps:
 
 3. Use the dashboard to manage your pending invoices.
 
-## Contributing
-
-Contributions are welcome! Please follow the [Contribution Guidelines](CONTRIBUTING.md).
-
-## Acknowledgements
-
-Special thanks to [contributors](CONTRIBUTORS.md) who have helped to improve this project.
 
 
 

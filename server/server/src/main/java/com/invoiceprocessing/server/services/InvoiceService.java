@@ -8,6 +8,10 @@ public interface InvoiceService {
 
     public List<Invoice> getInvoices();
 
+//    public List<Invoice> getInvoicesByEmail();
+
     public Invoice updateInvoice(long id, Invoice updatedInvoice);
     public Invoice deleteInvoice(long id);
+
+
 }

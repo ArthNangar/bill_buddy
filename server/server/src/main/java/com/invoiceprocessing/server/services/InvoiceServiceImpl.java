@@ -55,5 +55,10 @@ public class InvoiceServiceImpl implements  InvoiceService{
         invoiceDao.delete(invoice);
         return  invoice;
     }
+
+//    @Override
+//    public List<Invoice> getInvoicesByEmail(String email) {
+//        return invoiceDao.getInvoicesByEmail(email);
+//    }
 }
 
